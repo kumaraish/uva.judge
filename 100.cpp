@@ -28,11 +28,7 @@ int getCycleLen(int k) {
 int main() {
 
 #ifndef ONLINE_JUDGE
-
-#include "TestcasesFilePath.h"
-
-    freopen(Testcases_File_Path
-                    "100.in", "r", stdin);
+    freopen("100.in", "r", stdin);
 #endif
 
     int i, j, maxCycleLen;
