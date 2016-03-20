@@ -15,26 +15,26 @@ int main() {
     while (std::cin >> T >> R >> H) {
         int pT[20], pR[20], pH[20];
         int sT, sR, sH;
-        int _T[20][20], _R[20][20], _H[20][20];
+        int _TR[20][20], _RH[20][20], _HT[20][20];
 
         for (int i=0; i<T; i++) {
             cin >> pT[i];
             for (int j=0; j<R; j++) {
-                cin >> _T[i][j];
+                cin >> _TR[i][j];
             }
         }
         
         for (int i=0; i<R; i++) {
             cin >> pR[i];
             for (int j=0; j<H; j++) {
-                cin >> _R[i][j];
+                cin >> _RH[i][j];
             }
         }
         
         for (int i=0; i<H; i++) {
             cin >> pH[i];
             for (int j=0; j<T; j++) {
-                cin >> _H[i][j];
+                cin >> _HT[i][j];
             }
         }
         
@@ -42,11 +42,12 @@ int main() {
         for (int i=0; i<T; i++)
             for (int j=0; j<R; j++)
                 for (int k=0; k<H; k++)
-                    if (_T[i][j] == 0 && _R[j][k] == 0 && _H[k][i] == 0) {
-                        sum = pT[i] + pR[j] + pH[k];
-                        sT = i; sR = j; sH = k;                        
-                        if (sum < minS)
-                            minS = sum;   
+                    if (_TR[i][j] == 0 && _RH[j][k] == 0 && _HT[k][i] == 0) {
+                        sum = pT[i] + pR[j] + pH[k];                                               
+                        if (sum < minS) {
+                            sT = i; sR = j; sH = k; 
+                            minS = sum;  
+                        } 
                     }       
                                 
         if (minS == 2147483647)
